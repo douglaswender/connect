@@ -22,6 +22,8 @@ class ConnectPrimaryButton extends StatelessWidget {
       width: width,
       child: FilledButton(
         style: const ButtonStyle(
+          padding: MaterialStatePropertyAll(
+              EdgeInsets.symmetric(horizontal: 30, vertical: 14)),
           backgroundColor: MaterialStatePropertyAll(AppColors.green600),
         ),
         onPressed: onTap,

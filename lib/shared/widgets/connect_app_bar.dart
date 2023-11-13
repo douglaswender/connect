@@ -1,14 +1,21 @@
 import 'package:connect/shared/app_colors.dart';
 import 'package:connect/shared/app_images.dart';
 import 'package:connect/shared/widgets/connect_image.dart';
+import 'package:connect/shared/widgets/connect_primary_button.dart';
 import 'package:connect/shared/widgets/connect_text/connect_text.dart';
 import 'package:connect/shared/widgets/connect_text/connect_text_styles.dart';
 import 'package:connect/shared/widgets/connect_text_button.dart';
 import 'package:flutter/material.dart';
 
-class ConnectAppBar extends StatelessWidget {
+class ConnectAppBar extends StatefulWidget {
   const ConnectAppBar({super.key});
 
+  @override
+  State<ConnectAppBar> createState() => _ConnectAppBarState();
+}
+
+class _ConnectAppBarState extends State<ConnectAppBar> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,22 +46,56 @@ class ConnectAppBar extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            ConnectTextButton(
-              label: 'Home',
-              onPressed: () {},
+            Row(
+              children: [
+                ConnectTextButton(
+                  label: 'Home',
+                  isSelected: selectedIndex == 0,
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 0;
+                    });
+                  },
+                ),
+                ConnectTextButton(
+                  label: 'Careers',
+                  isSelected: selectedIndex == 1,
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 1;
+                    });
+                  },
+                ),
+                ConnectTextButton(
+                  label: 'About',
+                  isSelected: selectedIndex == 2,
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 2;
+                    });
+                  },
+                ),
+                ConnectTextButton(
+                  label: 'Security',
+                  isSelected: selectedIndex == 3,
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 3;
+                    });
+                  },
+                ),
+              ],
             ),
-            ConnectTextButton(
-              label: 'Careers',
-              onPressed: () {},
-            ),
-            ConnectTextButton(
-              label: 'About',
-              onPressed: () {},
-            ),
-            ConnectTextButton(
-              label: 'Security',
-              onPressed: () {},
-            ),
+            const Spacer(),
+            Row(
+              children: [
+                ConnectTextButton(
+                  label: 'Sign Up',
+                  onPressed: () {},
+                ),
+                ConnectPrimaryButton(label: 'Login')
+              ],
+            )
           ],
         ),
       ),

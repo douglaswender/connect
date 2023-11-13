@@ -5,10 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-        "name": "connect web ",
-        "request": "launch",
-        "type": "dart",
-        "args": ["--web-port=49430"]
+            "name": "connect web ",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=49430",
+                "--web-browser-flag \"--disable-web-security\""
+            ]
         },
         {
             "name": "connect",
